@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
 // import 'quill/static/media/bold.svg';
@@ -18,23 +22,16 @@ import Header from 'quill/formats/header';
 import Icons from 'quill/ui/icons'; //can't seem to get the icons for the buttons...
 
 
+// var food = <FontAwesomeIcon icon="stroopwafel" />
+
+// require('https://cdn.quilljs.com/1.3.6/quill.snow.css')
+// require('https://cdn.quilljs.com/1.3.6/quill.js')
+
 class QuillEditorSnow extends React.Component {
 
   componentDidMount() {
     console.warn('1. QuillEditorSnow - componentDidMount...')
 
-    // create quill element
-    var options = {
-      modules: {
-    toolbar: [
-      // [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      // ['image', 'code-block']
-    ]
-  },
-      placeholder: 'Compose an epic...',
-      theme: 'snow'  // or 'bubble'
-    }
 
     Quill.register({
       'modules/toolbar': Toolbar,
@@ -45,7 +42,27 @@ class QuillEditorSnow extends React.Component {
       'ui/icons': Icons //can't seem to get this to work...
     });
 
-    new Quill('#editor-container', options);
+    var icons = Quill.import('ui/icons');
+  // icons['dropdown'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
+  icons['ql-picker-label'] = '<i class="fa fa-caret-down" aria-hidden="true">';
+
+    icons['bold'] = '<i class="fa fa-bold" aria-hidden="true"></i>';
+    icons['italic'] = '<i class="fa fa-italic" aria-hidden="true"></i>';
+    icons['underline'] = '<i class="fa fa-underline" aria-hidden="true"></i>';
+    icons['image'] = '<i class="fa fa-picture-o" aria-hidden="true"></i>';
+    icons['code'] = '<i class="fa fa-code" aria-hidden="true"></i>';
+    // icons['clean'] = '<i class="fa fa-code" aria-hidden="true"></i>'; //NOTE: icon for clean!
+    // icons['link'] = '<i class="fa fa-code" aria-hidden="true"></i>'; //NOTE: icon for link!
+
+    var quill = new Quill('#editor', {
+      theme: 'snow' //this needs to come after the above, which registers Snow...
+    });
+
+    var dropdown = document.getElementsByClassName('ql-picker-label') //changing this here, can't do it in css...
+    console.log('dropdown is: ', dropdown)
+    dropdown[0].innerText = ""
+    console.log('dropdown is now: ', dropdown)
+
   } //componentDidMount
 
   render() {
@@ -53,54 +70,21 @@ class QuillEditorSnow extends React.Component {
     return (
       <div>
 
-        <div id="toolbar-container">
-          {/* <span className="ql-formats">
-            <select className="ql-font"></select>
-            <select className="ql-size"></select>
-          </span> */}
-          <span className="ql-formats">
-            <button className="ql-bold"></button>
-            <button className="ql-italic"></button>
-            <button className="ql-underline"></button>
-            {/* <button className="ql-strike"></button> */}
-          </span>
-          {/* <span className="ql-formats">
-            <select className="ql-color"></select>
-            <select className="ql-background"></select>
-          </span> */}
-          {/* <span className="ql-formats">
-            <button className="ql-script" value="sub"></button>
-            <button className="ql-script" value="super"></button>
-          </span> */}
-          {/* <span className="ql-formats">
-            <button className="ql-header" value="1"></button>
-            <button className="ql-header" value="2"></button>
-            <button className="ql-blockquote"></button>
-            <button className="ql-code-block"></button>
-          </span> */}
-          {/* <span className="ql-formats">
-            <button className="ql-list" value="ordered"></button>
-            <button className="ql-list" value="bullet"></button>
-            <button className="ql-indent" value="-1"></button>
-            <button className="ql-indent" value="+1"></button>
-          </span> */}
-          {/* <span className="ql-formats">
-            <button className="ql-direction" value="rtl"></button>
-            <select className="ql-align"></select>
-          </span> */}
-          {/* <span className="ql-formats">
-            <button className="ql-link"></button>
-            <button className="ql-image"></button>
-            <button className="ql-video"></button>
-            <button className="ql-formula"></button>
-          </span> */}
-          {/* <span className="ql-formats">
-            <button className="ql-clean"></button>
-          </span> */}
-        </div>
-        <div id="editor-container">
-        </div>
+        {/* <div>
+           Favorite Food:
+           {food}
+         </div>
+        <div>
+           Favorite drink:
+           <FontAwesomeIcon icon="coffee" />
+         </div> */}
 
+         {/* <!-- Create the editor container --> */}
+        <div id="editor">
+          <p>Hello World!</p>
+          <p>Some initial <strong>bold</strong> text</p>
+          <p></p>
+        </div>
       </div>
     )
   }

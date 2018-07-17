@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import QuillEditor from '../components/QuillEditor';
-// import QuillEditorSnow from '../components/QuillEditorSnow';
-import QuillEditorSnow2 from '../components/QuillEditorSnow2';
+// import QuillEditorSnow--OLD from '../components/QuillEditorSnow--OLD';
+import QuillEditorSnow from '../components/QuillEditorSnow';
 
 class QuillContainer extends Component {
   constructor() {
@@ -49,10 +49,10 @@ class QuillContainer extends Component {
         </div> */}
 
         <div style={{border: "1px solid purple"}}>
-          QuillEditorSnow2 goes here...
+          QuillEditorSnow goes here...
           <div>
-            <QuillEditorSnow2
-              showRoom={'room2'} //this is only prop that TextEdit needs!!!
+            <QuillEditorSnow
+              showRoom={'room1'} //this is only prop that TextEdit needs!!!
               connectionExists={this.state.connectionExists}
               handleColorBorder={this.handleColorBorder}
             />
