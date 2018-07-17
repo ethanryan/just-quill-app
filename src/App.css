@@ -1,6 +1,16 @@
+.standalone-container {
+  margin: 50px auto;
+  max-width: 720px;
+}
+
+#QuillEditorSnow-container {
+  height: 350px;
+  text-align: justify;
+}
+
 .ql-picker-label::after {
   padding-left: 10%;
-  content: "\f0d7"; /* this is the caret-down font */
+  content: "\f0dc"; /* this is the sort font */
   font-family: FontAwesome;  /* need this! */
 }
 
