@@ -42,7 +42,7 @@
 }
 
 .ql-bold::after {
-  content: "BOLD BUTTON YO";
+  content: "BOLD BUTTON";
 }
 
 /* .ql-bold::before {
@@ -59,7 +59,7 @@
 }
 
 .ql-italic::after {
-  content: "Italic BUTTON SON";
+  content: "Italic BUTTON";
 }
 
 

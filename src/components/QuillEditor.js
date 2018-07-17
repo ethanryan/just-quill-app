@@ -33,7 +33,8 @@ class QuillEditor extends React.Component {
     }
 
     var toolbarOptions = [
-      ['bold', 'italic'],          // toggled buttons //this needs to come first!
+      // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      ['bold', 'italic'],                               // toggled buttons
     ]
 
     //eventually can use this......
@@ -94,21 +95,6 @@ class QuillEditor extends React.Component {
 
         {/* Create toolbar container, outside of editor... */}
         {/* <div id="toolbar"></div> */}
-
-        <nav>
-          <ul>
-            <li><span className="icon login"></span> Login</li>
-            <li><span className="icon tps"></span> TPS Reports</li>
-            <li><span className="icon twitter"></span> Twitter</li>
-          </ul>
-        </nav>
-
-        <p>
-          <span className="icon login"></span> Login
-        </p>
-
-        <i className="test">TestButton</i>
-
 
         <div id="toolbar">
           {/* <button className="ql-bold">Bold</button> */}
