@@ -5,6 +5,10 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../quill/dist/quill.snow.css';
+
 // import 'quill/static/media/bold.svg';
 // import 'quill/assets/icons/bold.svg';
 
