@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import QuillEditor from '../components/QuillEditor';
+import QuillEditorSnow from '../components/QuillEditorSnow';
 
 class QuillContainer extends Component {
   constructor() {
@@ -25,9 +26,21 @@ class QuillContainer extends Component {
         </h2>
 
         <div style={{border: "1px solid orange"}}>
-          <div>
+          QuillEditor, no snow, goes here...
+          {/* <div>
             <QuillEditor
               showRoom={'room999'} //this is only prop that TextEdit needs!!!
+              connectionExists={this.state.connectionExists}
+              handleColorBorder={this.handleColorBorder}
+            />
+          </div> */}
+        </div>
+
+        <div style={{border: "1px solid blue"}}>
+          QuillEditorSnow goes here...
+          <div>
+            <QuillEditorSnow
+              showRoom={'room77777777777'} //this is only prop that TextEdit needs!!!
               connectionExists={this.state.connectionExists}
               handleColorBorder={this.handleColorBorder}
             />

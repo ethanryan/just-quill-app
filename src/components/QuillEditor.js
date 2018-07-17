@@ -60,8 +60,6 @@ class QuillEditor extends React.Component {
       // theme: 'snow' //can't get this to work! want to see icons in buttons...
       theme: null
     };
-    // var editor = new Quill('#editor', options);
-
     Quill.register({
       'modules/toolbar': Toolbar,
       'themes/snow': Snow,
@@ -70,12 +68,7 @@ class QuillEditor extends React.Component {
       'formats/header': Header,
       'ui/icons': Icons //can't seem to get this to work...
     });
-
-
     new Quill('#editor', options);
-
-
-
   } //componentDidMount
 
   render() {
