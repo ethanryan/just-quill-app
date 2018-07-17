@@ -13,6 +13,7 @@ import Italic from 'quill/formats/italic';
 import Header from 'quill/formats/header';
 import Underline from 'quill/formats/underline';
 import Link from 'quill/formats/link';
+import List, { ListItem } from 'quill/formats/list';
 
 import Icons from 'quill/ui/icons'; //need to import icons, then replace them...
 
@@ -27,8 +28,10 @@ class QuillEditorSnow extends React.Component {
       'formats/bold': Bold,
       'formats/italic': Italic,
       'formats/header': Header,
-      'format/underline': Underline,
-      'format/link': Link,
+      'formats/underline': Underline,
+      'formats/link': Link,
+      'formats/list': List,
+      'formats/list/item': ListItem,
       'ui/icons': Icons
     });
 
@@ -37,14 +40,7 @@ class QuillEditorSnow extends React.Component {
     icons['italic'] = '<i class="fa fa-italic" aria-hidden="true"></i>';
     icons['underline'] = '<i class="fa fa-underline" aria-hidden="true"></i>';
     icons['link'] = '<i class="fa fa-link" aria-hidden="true"></i>';
-
-    icons['list'] = '<i class="fa fa-list-ol" aria-hidden="true"></i>';
-    icons['list'] = '<i class="fa fa-list-ul" aria-hidden="true"></i>';
-
-    icons['clean'] = '<i class="fa fa-question" aria-hidden="true"></i>'; // making this a question mark for now because i can't find the font awesome equivalent of the clear / clean icon...
-
-    // icons['image'] = '<i class="fa fa-picture-o" aria-hidden="true"></i>';
-    // icons['code'] = '<i class="fa fa-code" aria-hidden="true"></i>';
+    icons['clean'] = '<i class="fa fa-eraser" aria-hidden="true"></i>'; // making this an eraser for now because i can't find the font awesome equivalent of the Tx / clear / clean icon...
 
     var quill = new Quill('#editor', {
       theme: 'snow' //this needs to come after the above, which registers Snow...
@@ -54,20 +50,24 @@ class QuillEditorSnow extends React.Component {
     var dropdown = document.getElementsByClassName('ql-picker-label'); //changing text here, can't do it in css...
     dropdown[0].innerText = "";
 
+    //lists both have same class, but different values, so changing them here...
+    var list = document.getElementsByClassName('ql-list');
+    list[0].innerHTML = '<i class="fa fa-list-ol" aria-hidden="true"></i>' //ordered list
+    list[1].innerHTML = '<i class="fa fa-list-ul" aria-hidden="true"></i>' //unordered list
   } //componentDidMount
 
   render() {
     console.warn('0. QuillEditorSnow - render...')
     return (
-      <div class="standalone-container">
-      <div id="QuillEditorSnow-container">
-        {/* <!-- Create the editor container --> */}
-        <div id="editor">
-          <p>Hello World!</p>
-          <p>Some initial <strong>bold</strong> text</p>
-          <p></p>
+      <div className="standalone-container">
+        <div id="QuillEditorSnow-container">
+          {/* <!-- Create the editor container --> */}
+          <div id="editor">
+            <p>Hello World!</p>
+            <p>Some initial <strong>bold</strong> text</p>
+            <p></p>
+          </div>
         </div>
-      </div>
       </div>
     )
   }
