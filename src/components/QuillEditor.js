@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
@@ -25,7 +25,7 @@ import Header from 'quill/formats/header';
 import Icons from 'quill/ui/icons'; //can't seem to get the icons for the buttons...
 
 
-const element = <FontAwesomeIcon icon={faCoffee} />
+// const element = <FontAwesomeIcon icon={faCoffee} />
 
 class QuillEditor extends React.Component {
 

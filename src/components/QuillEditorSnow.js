@@ -1,8 +1,12 @@
 import React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 // import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+
+// import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css'; //need to import this for snow theme to display correctly...
 
 import Quill from 'quill/core'; //must be from core for functions to work!!!
 import Toolbar from 'quill/modules/toolbar';
@@ -42,10 +46,10 @@ class QuillEditorSnow extends React.Component {
     icons['link'] = '<i class="fa fa-link" aria-hidden="true"></i>';
     icons['clean'] = '<i class="fa fa-eraser" aria-hidden="true"></i>'; // making this an eraser for now because i can't find the font awesome equivalent of the Tx / clear / clean icon...
 
-    var quill = new Quill('#editor', {
+    new Quill('#editor', {
       theme: 'snow' //this needs to come after the above, which registers Snow...
     });
-
+    
     //replacing unrendered svg string in dropdown with an empty string, then adding sort icon in css...
     var dropdown = document.getElementsByClassName('ql-picker-label'); //changing text here, can't do it in css...
     dropdown[0].innerText = "";

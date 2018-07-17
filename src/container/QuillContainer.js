@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import QuillEditor from '../components/QuillEditor';
+// import QuillEditor from '../components/QuillEditor';
 // import QuillEditorSnow--OLD from '../components/QuillEditorSnow--OLD';
 import QuillEditorSnow from '../components/QuillEditorSnow';
 
