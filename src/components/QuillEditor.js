@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
 // import 'quill/static/media/bold.svg';
@@ -18,10 +21,16 @@ import Header from 'quill/formats/header';
 import Icons from 'quill/ui/icons'; //can't seem to get the icons for the buttons...
 
 
+const element = <FontAwesomeIcon icon={faCoffee} />
+
 class QuillEditor extends React.Component {
 
   componentDidMount() {
     console.warn('1. QuillEditor - componentDidMount...')
+
+    window.FontAwesomeConfig = {
+      searchPseudoElements: true
+    }
 
     var toolbarOptions = [
       ['bold', 'italic'],          // toggled buttons //this needs to come first!
@@ -79,15 +88,31 @@ class QuillEditor extends React.Component {
         <p>
           QuillEditor - this.props.showRoom: {this.props.showRoom}
         </p>
+
         {/* new example, from codepen: */}
         {/* <div id="editor-container"></div> */}
 
         {/* Create toolbar container, outside of editor... */}
         {/* <div id="toolbar"></div> */}
 
+        <nav>
+          <ul>
+            <li><span className="icon login"></span> Login</li>
+            <li><span className="icon tps"></span> TPS Reports</li>
+            <li><span className="icon twitter"></span> Twitter</li>
+          </ul>
+        </nav>
+
+        <p>
+          <span className="icon login"></span> Login
+        </p>
+
+        <i className="test">TestButton</i>
+
+
         <div id="toolbar">
           {/* <button className="ql-bold">Bold</button> */}
-          {/* <button className="ql-bold"></button> */}
+          {/* <button className="ql-bold">{element}</button> */}
           {/* <button className="ql-bold" id="bold-button"><i className="fa fa-bold">Bold</i></button> */}
           {/* can add in my own icons here, for example, from font awesome... */}
 
